@@ -85,7 +85,7 @@ echo date('n/j(D)', strtotime('+2day'))."\n";
         echo '('.$week_name[date(w, $date)].')'."\n";
     } */
 
-    // レッスン21　連想配列
+    // レッスン21. 連想配列とforeach構文 - 英単語と日本語の対応表を作る
     $fruits = ['apple' => 'りんご',
     'grape' => 'ぶどう',
     'lemon' => 'レモン',
@@ -102,7 +102,7 @@ foreach ($fruits as $english => $japanese) {
     echo $english.':'.$japanese."\n";
 }
 
-// レッスン22
+// レッスン22. if構文 - 9時よりも前の時間の場合に、警告を表示する
     if (date('G') < 9) {
         echo ※現在受付時間外です;
     } else {
@@ -114,7 +114,7 @@ foreach ($fruits as $english => $japanese) {
         echo 文字が入っています."\n";
     }
 
-    // レッスン23
+    // レッスン23 ceil, floor, round - 小数を整数に切り上げる・切り下げる
     // 3000円のものから、100円引きした場合はO％引きです。
     // 切り捨てfloor
 echo '3000円のものから、100円引きした場合は'.floor(100 / 3000 * 100)."％引きです。\n";

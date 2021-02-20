@@ -20,10 +20,13 @@
     <main>
         <h2>Practice</h2>
         <pre>
-            <!-- inputのname属性が入る。フラグを指定。 -->
-            <!-- method属性がgetなので、$_REQUESTまたは$_GET -->
-            <!-- getはgetに対応、postはpostに対応、$_REQUESTはどちらかわかっていない時に使用ただしパスワードの利用に注意 -->
-    お名前： <?php echo htmlspecialchars($_REQUEST['my_name'], ENT_QUOTES); ?>
+
+<?php foreach ($_POST['reserve'] as $reserve) {
+    echo htmlspecialchars($reserve, ENT_QUOTES).' ';
+}
+?>
+
+
 </pre>
     </main>
 </body>

@@ -20,6 +20,7 @@
     <main>
         <h2>Practice</h2>
         <pre>
+                  <!-- index.htmlからname=genderを受信 -->
             <!-- inputのname属性が入る。フラグを指定。 -->
             <!-- method属性がgetなので、$_REQUESTまたは$_GET -->
             <!-- getはgetに対応、postはpostに対応、$_REQUESTはどちらかわかっていない時に使用ただしパスワードの利用に注意 -->

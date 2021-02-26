@@ -67,6 +67,13 @@ $memos->execute();
             <time><?php echo $memo['created_at']; ?></time>
             <hr>
             <?php endwhile; ?>
+
+            <!-- 66. 件数の多いレコードを、ページを分ける「ページング（ページネーション）」② -->
+            <?php if ($page >= 2): ?>
+            <a href="index.php?page=<?php echo $page - 1; ?>"><?php echo $page - 1; ?>ページ目へ</a>
+            <?php endif; ?>
+            |
+            <a href="index.php?page=<?php echo $page + 1; ?>"><?php echo $page + 1; ?>ページ目へ</a>
         </article>
     </main>
 </body>

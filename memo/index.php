@@ -20,14 +20,17 @@
     <main>
         <h2>Practice</h2>
         <?php
+// 64. 接続プログラムを共通プログラムにする
+require 'dbconnect.php';
+
 // DateBaseにアクセス
-try {
-    // PDO = PHP Date Object
-    // mysql ホスト名　キャラセット　ユーザー名　パスワード
-    $db = new PDO('mysql:dbname=mydb;host=localhost;charset=utf8', 'root', 'root');
-} catch (PDOException $e) {
-    echo 'DB接続エラー：'.$e->getMessage();
-}
+// try {
+//     // PDO = PHP Date Object
+//     // mysql ホスト名　キャラセット　ユーザー名　パスワード
+//     $db = new PDO('mysql:dbname=mydb;host=localhost;charset=utf8', 'root', 'root');
+// } catch (PDOException $e) {
+//     echo 'DB接続エラー：'.$e->getMessage();
+// }
 
 // ※INSERT INTO のクオーテンションと、SQLのクオーテーションを分ける
 // execは影響を与えた数を返す

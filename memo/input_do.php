@@ -21,21 +21,29 @@
         <h2>Practice</h2>
         <pre>
 <?php
+
 // 60. フォームからの情報を保存する①
-try {
-    $db = new PDO('mysql:dbname=mydb;host:8080;charset=utf-8', 'root', 'root');
+// try {
+    // $db = new PDO('mysql:dbname=mydb;host:8080;charset=utf-8', 'root', 'root');
 
     // $db->exec('INSERT INTO memos SET memo="'.$_POST['memo'].'", created_at=NOW()');
 
     // 61. フォームからの情報を保存する②
     // prepare = 事前準備
-    $statement = $db->prepare('INSERT INTO memos SET memo=?, created_at=NOW()');
+    /* $statement = $db->prepare('INSERT INTO memos SET memo=?, created_at=NOW()');
     $statement->bindparam(1, $_POST['memo']);
     $statement->execute([$_POST['memo']]);
-    echo メッセージが登録されました;
-} catch (PDOException $e) {
-    echo 'DB接続エラー:'.$e->getMessage();
-}
+    echo メッセージが登録されました; */
+    // } catch (PDOException $e) {
+        // echo 'DB接続エラー:'.$e->getMessage();
+        // }
+
+// 64. 接続プログラムを共通プログラムにする
+require 'dbconnect.php';
+$statement = $db->prepare('INSERT INTO memos SET memo=?, created_at=NOW()');
+$statement->bindparam(1, $_POST['memo']);
+$statement->execute([$_POST['memo']]);
+echo メッセージが登録されました;
 ?>
 </pre>
     </main>

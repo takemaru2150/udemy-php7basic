@@ -20,11 +20,14 @@
     <main>
         <h2>Practice</h2>
         <?php
-try {
-    $db = new PDO('mysql:dbname=mydb;host=localhost;charset=utf8', 'root', 'root');
-} catch (PDOException $e) {
-    echo 'DB接続エラー：'.$e->getMessage();
-}
+// try {
+//     $db = new PDO('mysql:dbname=mydb;host=localhost;charset=utf8', 'root', 'root');
+// } catch (PDOException $e) {
+//     echo 'DB接続エラー：'.$e->getMessage();
+// }
+
+// 64. 接続プログラムを共通プログラムにする
+require 'dbconnect.php';
 
 // 62. データの一覧・詳細画面を作る①
 // $memos = $db->query('SELECT * FROM memos WHERE id=1');

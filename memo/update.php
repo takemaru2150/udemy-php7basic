@@ -37,6 +37,7 @@ if (isset($_REQUEST['id']) && is_numeric($_REQUEST['id'])) {
             <textarea name="memo" cols="50" rows="10"><?php echo $memo['memo']; ?></textarea><br />
             <button type="submit">登録する</button>
         </form>
+        <!-- 自分で考えて追加した -->
         <a href="memo.php?id=<?php echo $id; ?>">戻る</a>
     </main>
 </body>

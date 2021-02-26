@@ -73,7 +73,16 @@ $memos->execute();
             <a href="index.php?page=<?php echo $page - 1; ?>"><?php echo $page - 1; ?>ページ目へ</a>
             <?php endif; ?>
             |
+
+            <!-- 67. 件数の多いレコードを、ページを分ける「ページング（ページネーション）」③ -->
+            <?php
+            $counts = $db->query('SELECT COUNT(*) as cnt FROM memos');
+            $count = $counts->fetch();
+            $max_page = ceil($count['cnt'] / 5); // ceil　切り上げる
+            if ($page < $max_page):
+                ?>
             <a href="index.php?page=<?php echo $page + 1; ?>"><?php echo $page + 1; ?>ページ目へ</a>
+            <?php endif; ?>
         </article>
     </main>
 </body>

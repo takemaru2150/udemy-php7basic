@@ -27,7 +27,20 @@ try {
 }
 
 // 62. データの一覧・詳細画面を作る①
-$memos = $db->query('SELECT * FROM memos WHERE id=1');
+// $memos = $db->query('SELECT * FROM memos WHERE id=1');
+
+// 63. データの一覧・詳細画面を作る②
+// 安全性を確かめる。
+$id = $_REQUEST['id'];
+if (!is_numeric($id) || $id <= 0) { // is_numeric 数字であるかどうか
+    echo '1以上の数字で指定してください';
+    exit();
+}
+
+// URLパラメータを渡す
+$memos = $db->prepare('SELECT * FROM memos WHERE id=?');
+$memos->execute([$id]);
+
 $memo = $memos->fetch();
 ?>
         <article>

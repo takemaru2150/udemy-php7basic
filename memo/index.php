@@ -40,9 +40,10 @@ try {
 $records = $db->query('SELECT * FROM my_items');
 // fetchは1行を取得する。なくなるとfalse
 // $recordは連想配列
-while ($record = $records->fetch()) {
-    echo $record['item_name']."\n";
-}
+// while ($record = $records->fetch()) {
+    // echo $record['item_name']."\n";
+// }
+
 ?>
 </pre>
     </main>

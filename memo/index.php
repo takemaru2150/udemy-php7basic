@@ -19,8 +19,7 @@
 
     <main>
         <h2>Practice</h2>
-        <pre>
-<?php
+        <?php
 // DateBaseにアクセス
 try {
     // PDO = PHP Date Object
@@ -37,15 +36,23 @@ try {
 
 // 59. query - SELECT SQLを実行する
 // queryは得られた値を返す
-$records = $db->query('SELECT * FROM my_items');
+// $records = $db->query('SELECT * FROM my_items');
 // fetchは1行を取得する。なくなるとfalse
 // $recordは連想配列
 // while ($record = $records->fetch()) {
     // echo $record['item_name']."\n";
 // }
 
+// 62. データの一覧・詳細画面を作る①
+$memos = $db->query('SELECT * FROM memos ORDER BY id DESC');
 ?>
-</pre>
+        <article>
+            <?php while ($memo = $memos->fetch()): ?>
+            <p><a href="#"><?php echo mb_substr($memo['memo'], 0, 50); ?></a></p>
+            <time><?php echo $memo['created_at']; ?></time>
+            <hr>
+            <?php endwhile; ?>
+        </article>
     </main>
 </body>
 

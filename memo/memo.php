@@ -48,7 +48,8 @@ $memo = $memos->fetch();
 ?>
         <article>
             <pre><?php echo $memo['memo']; ?></pre>
-
+            <a href="update.php?id=<?php echo $memo['id']; ?>">編集する</a>
+            |
             <a href="index.php">戻る</a>
         </article>
     </main>

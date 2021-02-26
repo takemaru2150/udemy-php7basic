@@ -47,7 +47,19 @@ require 'dbconnect.php';
 // }
 
 // 62. データの一覧・詳細画面を作る①
-$memos = $db->query('SELECT * FROM memos ORDER BY id DESC');
+// $memos = $db->query('SELECT * FROM memos ORDER BY id DESC');
+
+// 65. 件数の多いレコードを、ページを分ける「ページング（ページネーション）」①
+if (isset($_REQUEST['page']) && is_numeric($_REQUEST['page'])) {// 1ページ目を表示させる
+    $page = $_REQUEST['page'];
+} else {
+    $page = 1;
+}
+$start = 5 * ($page - 1);
+
+$memos = $db->prepare('SELECT * FROM memos ORDER BY id DESC LIMIT ?, 5');
+$memos->bindParam(1, $start, PDO::PARAM_INT);
+$memos->execute();
 ?>
         <article>
             <?php while ($memo = $memos->fetch()): ?>

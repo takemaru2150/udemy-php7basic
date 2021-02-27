@@ -76,9 +76,14 @@ if (isset($_REQUEST['res'])) {
                 <p><?php echo htmlspecialchars($post['message'], ENT_QUOTES); ?><span
                         class="name">（<?php echo htmlspecialchars($post['name'], ENT_QUOTES); ?>）</span>[<a
                         href="index.php?res=<?php echo htmlspecialchars($post['id'], ENT_QUOTES); ?>">Re</a>]</p>
-                <p class="day"><a href="view.php?id="><?php echo htmlspecialchars($post['created'], ENT_QUOTES); ?></a>
-                    <a href="view.php?id=">
+                <p class="day">
+                    <a
+                        href="view.php?id=<?php echo htmlspecialchars($post['id'], ENT_QUOTES); ?>"><?php echo htmlspecialchars($post['created'], ENT_QUOTES); ?></a>
+                    <!-- 返信があるものだけ表示 -->
+                    <?php if ($post['reply_message_id'] > 0):?>
+                    <a href="view.php?id=<?php echo htmlspecialchars($post['reply_message_id'], ENT_QUOTES); ?>">
                         返信元のメッセージ</a>
+                    <?php endif; ?>
                     [<a href="delete.php?id=" style="color: #F33;">削除</a>]
                 </p>
             </div>
